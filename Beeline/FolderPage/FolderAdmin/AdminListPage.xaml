@@ -1,0 +1,203 @@
+﻿<Page x:Class="Beeline.FolderPage.FolderAdmin.AdminListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Beeline.FolderPage.FolderAdmin"
+      mc:Ignorable="d"
+      d:DesignHeight="640" d:DesignWidth="1210"
+      Title="Клиенты">
+
+    <Grid>
+        <Border CornerRadius="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                 Background="{DynamicResource BaseColorPage}"
+                Width="1210" Height="640">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Label Content="Поиск:" Grid.Row="1" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="SearchTb" Grid.Row="1" Grid.Column="2"
+                 TextChanged="SearchTb_TextChanged" BorderBrush="White"/>
+                <Button x:Name="ImportBtn" Content="Импорт в Excel"
+                        Grid.Row="1" Grid.Column="3" Click="ImportBtn_Click"/>
+                <ListBox
+                    x:Name="LbDogovor"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3"
+                    Grid.RowSpan="5"
+                    Grid.Column="1"
+                    SelectionMode="Multiple"
+                    Background="{DynamicResource BaseColorPage}"
+                    Foreground="{DynamicResource Text}"
+                    MouseDoubleClick="LbDogovor_MouseDoubleClick">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Редактировать" 
+                                      x:Name="EditMI"
+                                      Click="EditMI_Click"/>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="900">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="280" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="280" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Image Grid.RowSpan="4"
+                                       Source="{Binding Client.Image}" 
+                                       Stretch="Uniform"
+                                       Width="100" Height="100"/>
+
+                                <TextBlock Margin="5"  x:Name="StatusTbl"
+                                           Grid.Column="6" Style="{DynamicResource ListBoxTextBlock}" HorizontalAlignment="Center">
+                                    <Run Text="Статус" FontWeight="Bold" Foreground="Aqua"/>
+                                </TextBlock>
+                                <TextBlock Margin="5"  x:Name="StatusTb"
+                                           Grid.Column="6" Grid.Row="1" HorizontalAlignment="Center" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="{Binding Status.NameStatus}" />
+                                </TextBlock>
+
+                                <TextBlock Margin="5" Grid.Column="2" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Фамилия: " FontWeight="Bold"/> 
+                                    <Run Text="{Binding Client.LastName}" />
+                                </TextBlock>
+
+                                <TextBlock Margin="5" Grid.Column="2" Grid.Row="1" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Имя: " FontWeight="Bold"/> 
+                                    <Run Text="{Binding Client.FirstName}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Row="2" Grid.Column="2"
+                                           Margin="5" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Отчество: " FontWeight="Bold"/> 
+                                    <Run Text="{Binding Client.MidleName}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Row="3" Grid.Column="2"
+                                           Margin="5" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="День рождения: " FontWeight="Bold"/>
+                                    <Run Text="{Binding Client.Birthday,StringFormat=dd.MM.yyyy}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Row="1"  Grid.Column="4"
+                                           Margin="5" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Эл. почта: " FontWeight="Bold"/>
+                                    <Run Text="{Binding Client.Email}" />
+                                </TextBlock>
+
+                                <TextBlock Margin="5" Grid.Column="4" 
+                                           Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Телефона: " FontWeight="Bold"/>
+                                    <Run Text="{Binding Client.Phone}" />
+                                </TextBlock>
+
+
+
+                                <TextBlock Grid.Row="2" Margin="5" 
+                                           Grid.Column="4" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Серия и номер: " FontWeight="Bold"/>
+                                    <Run Text="{Binding Client.SeriesAndNumber}" />
+                                </TextBlock>
+
+                                <TextBlock Grid.Row="3" Margin="5"  
+                                           Grid.Column="4" Style="{DynamicResource ListBoxTextBlock}">
+                                    <Run Text="Дата выдачи: " FontWeight="Bold"/>
+                                    <Run Text="{Binding Client.DateOfIssue,StringFormat=dd.MM.yyyy}" />
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <DataGrid x:Name="DGClient" AutoGenerateColumns="False" IsReadOnly="True"
+                  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Visibility="Hidden"
+                  ItemsSource="{Binding Dogovor}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Номер договора"
+                                    Binding="{Binding IdDogovor}"
+                                    Width="*"/>
+
+                        <DataGridTextColumn Header="Тариф"
+                                    Binding="{Binding Tarif.NameTarif}"
+                                    Width="*"/>
+                        
+                        
+                        <DataGridTextColumn Header="Фамилия клиента"
+                                    Binding="{Binding Client.LastName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Имя клиента"
+                                    Binding="{Binding Client.FirstName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Отчество клиента"
+                                    Binding="{Binding Client.MidleName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Дата рождения клиента"
+                                    Binding="{Binding Client.Birthday,StringFormat=dd.MM.yyyy}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Номер телефона клиента"
+                                    Binding="{Binding Client.Phone}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Эл.почта клиента"
+                                    Binding="{Binding Client.Email}"
+                                    Width="*"/>                      
+                        <DataGridTextColumn Header="Серия и номер паспорта клиента" 
+                                    Binding="{Binding Client.SeriesAndNumber}"
+                                    Width="*"/>
+
+                        <DataGridTextColumn Header="Дата выдачи паспорта клиента"
+                                    Binding="{Binding Client.DateOfIssue,StringFormat=dd.MM.yyyy}"
+                                    Width="*"/>
+
+                        <DataGridTextColumn Header="Фамилия сотрудника"
+                                    Binding="{Binding Sotr.LastName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Имя сотрудника"
+                                    Binding="{Binding Sotr.FirstName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Отчество сотрудника"
+                                    Binding="{Binding Sotr.MidleName}"
+                                    Width="*"/>
+                        <DataGridTextColumn Header="Статус"
+                                    Binding="{Binding Status.NameStatus}"
+                                    Width="*"/>
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+                <!--<Button x:Name="BnInfo" Content="Кто обслуживал клиента" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="300" Grid.Row="6" Click="BnInfo_Click"/>-->
+                <!--<Button x:Name="BnSotr" Content="Сотрудники" Grid.Column="3" Grid.Row="6" Click="BnSotr_Click"/>-->
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

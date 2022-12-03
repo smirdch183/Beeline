@@ -1,0 +1,136 @@
+﻿<Window x:Class="Beeline.FolderWindow.MainFrameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Beeline.FolderWindow"
+        mc:Ignorable="d"
+        Title="MainFrameWindow" Height="750" Width="1450"
+        Icon="/FolderResources/FolderImage/Beeline.png"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{x:Null}"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Border Style="{DynamicResource BaseBorder}"
+                Margin="0"
+                MouseDown="Border_MouseDown" Background="{DynamicResource Whitegray}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                            Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Image Height="40"
+                           Margin="10"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/Beeline.png"/>
+                    <Label Content="{Binding ElementName=MainFrame, Path=Content.Title}"
+                           HorizontalAlignment="Left"
+                           Style="{DynamicResource LabelLogo}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Grid.Row="1" Height="55"
+                            HorizontalAlignment="Right" Margin="10"
+                            Orientation="Horizontal">
+                    <Image Height="15" Width="15" x:Name="RollUpIm"
+                           HorizontalAlignment="Right"
+                           Source="/FolderResources/FolderImage/DashWhite.png"
+                           MouseLeftButtonDown="RollUpIm_MouseLeftButtonDown"
+                           Margin="10"/>
+                    <Image Height="15" Width="15" x:Name="CloseIm"
+                           HorizontalAlignment="Right"
+                           Source="/FolderResources/FolderImage/CloseWhite.png"
+                           MouseLeftButtonDown="CloseIm_MouseLeftButtonDown"
+                           Margin="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15"  x:Name="BnBack" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="Auto" Height="Auto" MouseLeftButtonDown="BnBack_Click">
+                    <Image Height="30"   
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/СтрелкаБелая.png"/>
+                    <Label Content="Назад" FontSize="25" Style="{DynamicResource NormalLabel}"/>
+                </StackPanel>
+                <!--<Button x:Name="BnBack" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="Auto" Height="Auto" Content="Назад" Click="BnBack_Click"/>-->
+                <!--<Button x:Name="BnExport" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Content="Экспорт" Width="Auto" Height="Auto"
+                           HorizontalAlignment="Center"
+                           MouseLeftButtonDown="BnExport_MouseLeftButtonDown" Margin="10"/>-->
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1"
+                            x:Name="SpButton" Height="600" Width="256" Margin="10">
+                    <StackPanel x:Name="HomeIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="HomeIm_MouseLeftButtonDown">
+                        <Image Height="30" 
+                              
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/Home.png"/>
+                        <Label Content="Главная" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="SotrSIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="SotrSIm_MouseLeftButtonDown">
+                        <Image Height="30" Width="30" 
+                           HorizontalAlignment="Center"
+                               Source="/FolderResources/FolderImage/Staff.png"/>
+                        <Label Content="Сотрудники" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="DogovorIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="DogovorIm_MouseLeftButtonDown">
+                        <Image Height="30" 
+                           HorizontalAlignment="Center"
+                               Source="/FolderResources/FolderImage/Dogovor.png"/>
+                        <Label Content="Договора" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <!--<Image Height="50" x:Name="HomeIm" x:FieldModifier="public"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/HomeWhite.png"
+                           MouseLeftButtonDown="HomeIm_MouseLeftButtonDown" Margin="20"/>-->
+                    <StackPanel x:Name="TarifIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="TarifIm_MouseLeftButtonDown">
+                        <Image Height="30"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/Tarif.png"/>
+                        <Label Content="Тарифы" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <!--<Image Height="50" x:Name="TarifIm"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/TarifWhite.png"
+                           MouseLeftButtonDown="TarifIm_MouseLeftButtonDown" Margin="20"/>-->
+                    <!--<Label x:Name="LbAdd" Content="Добавление" Style="{DynamicResource LabelLogo}" HorizontalContentAlignment="Left"/>-->
+                    <StackPanel x:Name="ClientIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="ClientIm_MouseLeftButtonDown">
+                        <Image Height="30"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/UserAdd.png"/>
+                        <Label Content="Клиент" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <!--<Image Height="50" x:Name="ClientIm"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/UserWhite.png"
+                           MouseLeftButtonDown="ClientIm_MouseLeftButtonDown" Margin="20"/>-->
+                    <StackPanel x:Name="SotrIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="SotrIm_MouseLeftButtonDown">
+                        <Image Height="30" Width="30"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/StaffAdd.png"/>
+                        <Label Content="Сотрудник" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="TarifAddIm" Orientation="Horizontal" Margin="15" MouseLeftButtonDown="TarifAddIm_MouseLeftButtonDown">
+                        <Image Height="30"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/TarifAdd.png"/>
+                        <Label Content="Тариф" FontSize="22" Style="{DynamicResource NormalLabel}"/>
+                    </StackPanel>
+                    <!--<Image Height="50" x:Name="SotrIm"
+                           HorizontalAlignment="Center"
+                           Source="/FolderResources/FolderImage/SotrWhite.png"
+                           MouseLeftButtonDown="SotrIm_MouseLeftButtonDown" Margin="20"/>-->
+                    
+                </StackPanel>
+                <Frame Width="1210" Height="640" Grid.Row="2" Grid.Column="2" x:Name="MainFrame" Margin="10"
+                       NavigationUIVisibility="Hidden" Background="Transparent"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

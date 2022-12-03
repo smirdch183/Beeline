@@ -1,0 +1,81 @@
+﻿<Page x:Class="Beeline.FolderPage.FolderAdmin.AdminEditSotrPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Beeline.FolderPage.FolderAdmin"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="1210"
+      Title="Редактирование">
+
+    <Grid>
+        <Border CornerRadius="30"
+                Width="1210"
+                Height="640"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                 Background="{DynamicResource BaseColorPage}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Label Content="Фамилия" Grid.Row="1" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbLastName" Grid.Row="1" Grid.Column="2" Text="{Binding LastName}"/>
+                <Label Content="Имя" Grid.Row="3" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbFirstName" Grid.Row="3" Grid.Column="2" Text="{Binding FirstName}"/>
+                <Label Content="Отчество" Grid.Row="5" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbMidleName" Grid.Row="5" Grid.Column="2" Text="{Binding MidleName}"/>
+                <Label Content="Телефон" Grid.Row="9" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbPhone" Grid.Row="9" Grid.Column="2" Text="{Binding Phone}"/>
+                <Label Content="Дата рождения" Grid.Row="11" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <DatePicker x:Name="DpBirthday" Grid.Row="11" Grid.Column="2" Text="{Binding Birthday}"/>
+                <Label Content="Email" Grid.Row="1" Grid.Column="4" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbEmail" Grid.Row="1" Grid.Column="5" Text="{Binding Email}"/>
+                <Label Content="Серия и номер" Grid.Row="7" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbSeriesAndNumber" Grid.Row="7" Grid.Column="2" Text="{Binding SeriesAndNumber}"/>
+                <Label Content="Дата выдачи" Grid.Row="3" Grid.Column="4" Style="{DynamicResource NormalLabel}"/>
+                <DatePicker x:Name="DpDateOfIssue" Grid.Row="3" Grid.Column="5" Text="{Binding DateOfIssue}"/>
+                <Border Grid.Row="5" Grid.RowSpan="5" Width="140" Height="140"
+                       Grid.Column="4" Grid.ColumnSpan="2"
+                        Style="{DynamicResource BaseBorder}"
+                        CornerRadius="5" BorderThickness="1" Background="{x:Null}">
+                    <Image x:Name="PhotoIm"
+                           Style="{DynamicResource PhotoImage}"
+                           Source="{Binding Image}"/>
+                </Border>
+
+                <Button x:Name="LoadPhotoBtn"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="11"
+                        Content="Загрузить фото*"
+                        Click="LoadPhotoBtn_Click"/>
+                <Button x:Name="BnBack" Content="Назад" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="13" Click="BnBack_Click"/>
+                <Button x:Name="BnSave" Content="Сохранить" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="13" Click="BnSave_Click"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

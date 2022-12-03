@@ -1,0 +1,77 @@
+﻿<Window x:Class="Beeline.FolderWindow.MainFrameAuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Beeline.FolderWindow"
+        mc:Ignorable="d"
+        Title="MainFrameAuthorizationWindow" Height="450" Width="1000"
+        Icon="/FolderResources/FolderImage/Group 3.png"
+        WindowStyle="None"
+        
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{x:Null}">
+    <Grid>
+        <Border Style="{DynamicResource BaseBorder}"
+                Margin="0"
+                MouseDown="Border_MouseDown" Background="#4F8AAF">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="472"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="1" Height="50"
+                            HorizontalAlignment="Right" Margin="10"
+                            Orientation="Horizontal">
+                    <Image Height="15" Width="15" x:Name="RollUpIm"
+                           HorizontalAlignment="Right"
+                           Source="/FolderResources/FolderImage/Dash.png"
+                           MouseLeftButtonDown="RollUpIm_MouseLeftButtonDown" Margin="10"/>
+                    <Image Height="15" x:Name="CloseIm"
+                           HorizontalAlignment="Right"
+                           Source="/FolderResources/FolderImage/Close.png"
+                           MouseLeftButtonDown="CloseIm_MouseLeftButtonDown" Margin="10"/>
+                </StackPanel>
+                <Label Grid.Row="2" Grid.Column="5" Content="Авторизация" 
+                       HorizontalAlignment="Center" 
+                       Style="{DynamicResource LabelLogo}" 
+                       Foreground="{DynamicResource Whitegray}"/>
+                <StackPanel Grid.Row="4" Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/FolderResources/FolderImage/Login.png" Width="30" Height="30" />
+                    <TextBox x:Name="TbLogin" Width="300" BorderBrush="White"/>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                        
+                        <Image Source="/FolderResources/FolderImage/password.png" Width="30" Height="30"/>
+                    <Border Background="{x:Null}"
+                        Style="{DynamicResource BaseBorder}"
+                        CornerRadius="5" BorderThickness="1" Width="300" Height="50" BorderBrush="White">
+                        <PasswordBox x:Name="PbPassword" Background="{x:Null}"/>
+                    </Border>
+                </StackPanel>
+                <Button x:Name="BnEnter" Content="Войти" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Click="BnEnter_Click"/>
+                <Image Source="/FolderResources/FolderImage/Rectangle 2.png" Grid.Column="0" Grid.Row="0" 
+                       Grid.RowSpan="9" Grid.ColumnSpan="5" Margin="0" Stretch="Fill"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BEE7FC6A-154D-481C-9328-2FEFAF86BCB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Beeline</RootNamespace>
+    <AssemblyName>Beeline</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FolderClass\ClassExport.cs" />
+    <Compile Include="FolderClass\ClassGlobal.cs" />
+    <Compile Include="FolderClass\ClassMB.cs" />
+    <Compile Include="FolderClass\ClassVariable.cs" />
+    <Compile Include="FolderClass\LoadAndReadImageClass.cs" />
+    <Compile Include="FolderData\Client.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Dogovor.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\ModelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\ModelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\ModelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Phone.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Role.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Sotr.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Status.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\StatusPhone.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\sysdiagrams.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\Tarif.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderData\User.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\AuthorizationPage.xaml.cs">
+      <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminAddClientDogovorPage.xaml.cs">
+      <DependentUpon>AdminAddClientDogovorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminAddClientPage.xaml.cs">
+      <DependentUpon>AdminAddClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminAddSotrPage.xaml.cs">
+      <DependentUpon>AdminAddSotrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminAddSotrProdolgPage.xaml.cs">
+      <DependentUpon>AdminAddSotrProdolgPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminDogovorPage.xaml.cs">
+      <DependentUpon>AdminDogovorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminEditPage.xaml.cs">
+      <DependentUpon>AdminEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminEditSotrPage.xaml.cs">
+      <DependentUpon>AdminEditSotrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminEditTarifPage.xaml.cs">
+      <DependentUpon>AdminEditTarifPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminListPage.xaml.cs">
+      <DependentUpon>AdminListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminListSotrPage.xaml.cs">
+      <DependentUpon>AdminListSotrPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\FolderAdmin\AdminTarifAddPage.xaml.cs">
+      <DependentUpon>AdminTarifAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\OperatorAddClientPage.xaml.cs">
+      <DependentUpon>OperatorAddClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\OperstorAddClientDogovorPage.xaml.cs">
+      <DependentUpon>OperstorAddClientDogovorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderPage\TarifPage.xaml.cs">
+      <DependentUpon>TarifPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\MainFrameAddWindow.xaml.cs">
+      <DependentUpon>MainFrameAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\MainFrameAuthorizationWindow.xaml.cs">
+      <DependentUpon>MainFrameAuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FolderWindow\MainFrameWindow.xaml.cs">
+      <DependentUpon>MainFrameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="FolderData\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FolderData\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="FolderPage\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminAddClientDogovorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminAddClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminAddSotrPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminAddSotrProdolgPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminDogovorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminEditSotrPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminEditTarifPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminListSotrPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\FolderAdmin\AdminTarifAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\OperatorAddClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\OperstorAddClientDogovorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderPage\TarifPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderResources\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\MainFrameAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\MainFrameAuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderWindow\MainFrameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FolderResources\FolderImage\Close.png" />
+    <Resource Include="FolderResources\FolderImage\avatar.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FolderResources\FolderImage\Beeline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FolderResources\FolderImage\Home.png" />
+    <Resource Include="FolderResources\FolderImage\TarifAdd.png" />
+    <Resource Include="FolderResources\FolderImage\UserAdd.png" />
+    <Resource Include="FolderResources\FolderImage\StaffAdd.png" />
+    <Resource Include="FolderResources\FolderImage\Tarif.png" />
+    <Resource Include="FolderResources\FolderImage\Dogovor.png" />
+    <Resource Include="FolderResources\FolderImage\Staff.png" />
+    <Resource Include="FolderResources\FolderImage\СтрелкаБелая.png" />
+    <Resource Include="FolderResources\FolderImage\CloseWhite.png" />
+    <Resource Include="FolderResources\FolderImage\DashWhite.png" />
+    <Resource Include="FolderResources\FolderImage\Login.png" />
+    <Resource Include="FolderResources\FolderImage\Rectangle 2.png" />
+    <Resource Include="FolderResources\FolderImage\Стрелка.png" />
+    <Resource Include="FolderResources\FolderImage\password.png" />
+    <Resource Include="FolderResources\FolderImage\Dash.png" />
+    <Resource Include="FolderResources\FolderImage\Group 3.png" />
+    <Content Include="FolderData\ModelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FolderData\ModelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

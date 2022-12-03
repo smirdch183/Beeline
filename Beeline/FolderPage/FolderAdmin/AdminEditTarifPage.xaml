@@ -1,0 +1,69 @@
+﻿<Page x:Class="Beeline.FolderPage.FolderAdmin.AdminEditTarifPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Beeline.FolderPage.FolderAdmin"
+      mc:Ignorable="d" 
+      d:DesignHeight="640" d:DesignWidth="1210"
+      Title="AdminEditTarifPage">
+
+    <Grid>
+        <Border CornerRadius="30"
+                Width="1210"
+                Height="640"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                 Background="{DynamicResource BaseColorPage}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Label Content="Название" Grid.Row="1" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbNameTarif" Grid.Row="1" Grid.Column="2" Text="{Binding NameTarif}"/>
+                <Label Content="Гб" Grid.Row="3" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbGb" Grid.Row="3" Grid.Column="2" Text="{Binding Gb}"/>
+                <Label Content="Минуты" Grid.Row="5" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbMinute" Grid.Row="5" Grid.Column="2" Text="{Binding Minute}"/>
+                <Label Content="Цена" Grid.Row="7" Grid.Column="1" Style="{DynamicResource NormalLabel}"/>
+                <TextBox x:Name="TbPrice" Grid.Row="7" Grid.Column="2" Text="{Binding Price}"/>
+                <Border Grid.Row="1" Grid.RowSpan="5" Width="140" Height="140"
+                       Grid.Column="4" Grid.ColumnSpan="2"
+                        Style="{DynamicResource BaseBorder}"
+                        CornerRadius="5" BorderThickness="1" Background="{x:Null}">
+                    <Image x:Name="PhotoIm"
+                           Style="{DynamicResource PhotoImage}"
+                           Source="{Binding Image}"/>
+                </Border>
+
+                <Button x:Name="LoadPhotoBtn"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="7"
+                        Content="Загрузить фото*"
+                        Click="LoadPhotoBtn_Click"/>
+                <Button x:Name="BnBack" Content="Назад" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="9" Click="BnBack_Click"/>
+                <Button x:Name="BnSave" Content="Сохранить" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="9" Click="BnSave_Click"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
